@@ -15,7 +15,7 @@ spec:
     spec:
       serviceAccountName: knoxautopolicy
       containers:
-      - image: accuknox/knoxautopolicy:latest
+      - image: accuknox/knoxautopolicy:dev
         #image: accuknox/knoxautopolicy:latest
         name: knoxautopolicy
         ports:
