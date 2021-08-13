@@ -57,7 +57,6 @@ data:
     logging:
       level: "INFO"
 
-    # kubectl -n kube-system port-forward service/hubble-relay --address 0.0.0.0 --address :: 4245:80
-    cilium-hubble:
+    cilium-hubble: # kubectl -n kube-system port-forward service/hubble-relay --address 0.0.0.0 --address :: 4245:80
       url: cilium.kube-system.svc.cluster.local
       port: 80
