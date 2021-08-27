@@ -10,7 +10,7 @@ data:
         operation-mode: 1                         # 1: cronjob | 2: one-time-job
         cron-job-time-interval: "0h0m10s"         # format: XhYmZs
         operation-trigger: 1000
-        network-log-from: "db"                    # db|hubble
+        network-log-from: "hubble"                    # db|hubble
         network-log-file: "./flow.json"           # file path
         network-policy-to: "db|file"              # db, file
         network-policy-dir: "./"
@@ -58,5 +58,5 @@ data:
       level: "INFO"
 
     cilium-hubble: # kubectl -n kube-system port-forward service/hubble-relay --address 0.0.0.0 --address :: 4245:80
-      url: cilium.kube-system.svc.cluster.local
+      url: hubble-relay.kube-system.svc.cluster.local
       port: 80
