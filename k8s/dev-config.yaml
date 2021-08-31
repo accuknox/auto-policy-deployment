@@ -10,7 +10,7 @@ data:
         operation-mode: 1                         # 1: cronjob | 2: one-time-job
         cron-job-time-interval: "0h0m10s"         # format: XhYmZs
         operation-trigger: 1000
-        network-log-from: "hubble"                    # db|hubble
+        network-log-from: "db"                    # db|hubble
         network-log-file: "./flow.json"           # file path
         network-policy-to: "db|file"              # db, file
         network-policy-dir: "./"
@@ -19,7 +19,7 @@ data:
       system:
         operation-mode: 1                         # 1: cronjob | 2: one-time-job
         cron-job-time-interval: "0h0m10s"         # format: XhYmZs
-        system-log-from: "db"                     # db|kubearmor
+        system-log-from: "kubearmor"                     # db|kubearmor
         system-log-file: "./log.json"             # file path
         system-policy-to: "db|file"               # db, file
         system-policy-dir: "./"
@@ -32,7 +32,7 @@ data:
       port: 3306
       user: root
       password: password
-      dbname: accuknox
+      dbname: knoxautopolicy
       table-configuration: auto_policy_config
       table-network-log: network_log
       table-network-policy: network_policy
@@ -57,6 +57,11 @@ data:
     logging:
       level: "INFO"
 
-    cilium-hubble: # kubectl -n kube-system port-forward service/hubble-relay --address 0.0.0.0 --address :: 4245:80
+# kubectl -n kube-system port-forward service/hubble-relay --address 0.0.0.0 --address :: 4245:80
+    cilium-hubble:
       url: hubble-relay.kube-system.svc.cluster.local
       port: 80
+    
+    kubearmor:
+      url: kubearmor.kube-system.svc.cluster.local
+      port: 32767
