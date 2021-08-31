@@ -57,11 +57,11 @@ data:
     logging:
       level: "INFO"
 
-# kubectl -n kube-system port-forward service/hubble-relay --address 0.0.0.0 --address :: 4245:80
-    cilium-hubble:
-      url: hubble-relay.kube-system.svc.cluster.local
-      port: 80
-    
-    kubearmor:
-      url: kubearmor.kube-system.svc.cluster.local
-      port: 32767
+  # kubectl -n kube-system port-forward service/hubble-relay --address 0.0.0.0 --address :: 4245:80
+  cilium-hubble:
+    url: hubble-relay.kube-system.svc.cluster.local
+    port: 80
+
+  kubearmor:
+    url: kubearmor.kube-system.svc.cluster.local
+    port: 32767
